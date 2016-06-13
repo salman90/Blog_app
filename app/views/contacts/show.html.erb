@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% elsif flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+<h1><%= @contact.name %></h1>
+<%= link_to "edit", edit_contact_path %>
+|
+<%= link_to "delete", contact_path(@contact),
+                      method: :delete,
+                      data: {confirm: "are you sure?"} %>

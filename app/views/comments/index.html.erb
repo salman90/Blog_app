@@ -1,0 +1,11 @@
+<h1>All Comment</h1>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+  <% elsif flash[:alert] %>
+<%= flash[:alert] %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <%= link_to comment.body, post_path(comment) %>
+  <hr>
+  <% end %>

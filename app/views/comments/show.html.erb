@@ -1,0 +1,13 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% elsif flash[:alert] %>
+  <%= flash[:alert]  %>
+  <% end %>
+
+  <p><%= @comment.body %></p>
+
+  <%= link_to "edit" , edit_comment_path%>
+  |
+  <%= link_to "Delete",comment_path(@comment),
+                        method: :Delete,
+                        data: {confirm: "Are you sure?"}%>

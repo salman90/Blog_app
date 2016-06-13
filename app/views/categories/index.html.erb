@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+  <%= flash[:notice]  %>
+<% elsif flash[:alert] %>
+  <%= flash[:alert] %>
+<% end  %>
+
+<% @categories.each do |category| %>
+  <%= link_to category.title, category_path(category) %>
+  <hr>
+  <% end %>

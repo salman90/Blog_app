@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "home#index"
   get "/about" => "home#about"
+  resources :posts
+  resources :comments
+  resources :categories
+  resources :contacts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

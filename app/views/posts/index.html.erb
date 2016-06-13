@@ -1,0 +1,13 @@
+<h1> All Posts</h1>
+
+<% if flash[:notice] %>
+  <%= flash[:notice]  %>
+<% elsif flash[:alert] %>
+  <%= flash[:alert] %>
+<% end  %>
+
+
+<% @posts.each do |post| %>
+  <%= link_to post.title, post_path(post) %>
+  <hr>
+  <% end %>

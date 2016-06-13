@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% elsif flash[:alert] %>
+  <%= flash[:alert] %>
+  <% end %>
+<p><%= @category.title %></p>
+<%= link_to "edit", edit_category_path(@category) %>
+|
+<%= link_to "delete", category_path(@category),
+                      method: :delete,
+                      data: {confirm: "are you sure?"}%>
