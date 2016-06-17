@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+#i am adding a comment 
+
   has_secure_password
   has_many :comments, dependent: :nullify
   has_many :posts, dependent: :nullify
