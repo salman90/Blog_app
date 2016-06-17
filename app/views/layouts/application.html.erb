@@ -15,20 +15,28 @@
     <%= link_to "Add new post", new_post_path %>
     |
     <%= link_to "All posts" , posts_path %>
+    <!-- |
+     <%# #link_to "Add category", new_category_path%>
     |
-    <%= link_to "Add comment", new_comment_path %>
+     <%# #link_to "All categories" ,categories_path%>
     |
-    <%= link_to "All comments", comments_path %>
+    <%# #link_to "contact list", new_contact_path %>
     |
-    <%= link_to "Add category", new_category_path%>
-    |
-    <%= link_to "All categories" ,categories_path%>
-    |
-    <%= link_to "contact list", new_contact_path %>
-    |
-    <%= link_to "contact info",contacts_path %>
+    <%# #link_to "contact info",contacts_path %>
+    | -->
+    <% if user_signed_in? %>
+        Hello, <%= current_user.first_name %>
+        <%= link_to "Sign Out", sessions_path, method: :delete %>
+        <% else %>
+      <%= link_to "sign up" ,new_user_path%>
+      <%= link_to "sign in" ,new_session_path%>
+      <% end %>
   </nav>
-
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% elsif flash[:alert] %>
+    <%= flash[:alert] %>
+  <% end %>
 
 <%= yield %>
 

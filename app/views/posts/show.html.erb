@@ -11,3 +11,21 @@
 <%= link_to "Delete", post_path(@post),
                       method: :delete,
                       data: {confirm: "Are you sure?"}  %>
+
+<h2>Create A Comment</h2>
+<%= form_for [@post, @comment] do |c| %>
+<div>
+  <%= c.label :body %>
+  <%= c.text_area :body %>
+</div>
+  <%= c.submit %>
+<% end %>
+
+<h2>All Comments</h2>
+
+<% @post.comments.each do |com| %>
+  <p><%= com.body %> |
+  <%= link_to "Delete", post_comment_path(@post, com),
+                        method: :delete,
+                        data: {confirm: "Are you sure?"} %></p>
+<% end  %>

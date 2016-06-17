@@ -8,6 +8,9 @@
 <div>
   <%= f.label :body %>
   <%= f.text_area :body %>
+  <div>
+  <%= f.collection_select :category_id, Category.all, :id, :title %>
+</div>
 </div>
 <%= f.submit %>
 <% end %>

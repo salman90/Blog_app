@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     if @post.save
       flash[:notice] = "Post created successfully"
       redirect_to post_path(@post)
+      # render json: params
 
     else
       flash[:alert] = "post can't be created"
@@ -17,7 +18,9 @@ class PostsController < ApplicationController
     end
 
   end
+
   def show
+    @comment = Comment.new
   end
   def index
     @posts = Post.order(created_at: :desc)
