@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-#i am adding a comment 
+#i am adding a comment
 
-  has_secure_password
+  has_secure_password #adds the passowrd and the passowrd confi
   has_many :comments, dependent: :nullify
   has_many :posts, dependent: :nullify
 validates :first_name , presence: true

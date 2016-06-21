@@ -27,10 +27,10 @@
     <% if user_signed_in? %>
         Hello, <%= current_user.first_name %>
         <%= link_to "Sign Out", sessions_path, method: :delete %>
-        <% else %>
+    <% else %>
       <%= link_to "sign up" ,new_user_path%>
       <%= link_to "sign in" ,new_session_path%>
-      <% end %>
+    <% end %>
   </nav>
   <% if flash[:notice] %>
     <%= flash[:notice] %>

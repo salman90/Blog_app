@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def new
     @post = Post.new
@@ -11,7 +12,6 @@ class PostsController < ApplicationController
       flash[:notice] = "Post created successfully"
       redirect_to post_path(@post)
       # render json: params
-
     else
       flash[:alert] = "post can't be created"
       render :new
@@ -55,5 +55,7 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
   end
 
-
+  def authenticate_user! #is to make sure that the user can't change anything if he's not signed in 
+    redirect_to new_session_path, alert: "Please sign in."unless user_signed_in?
+  end
 end
