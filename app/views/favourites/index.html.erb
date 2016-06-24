@@ -1,0 +1,4 @@
+<h1>all the favourite</h1>
+<% @posts.each do |post| %>
+<%= link_to post.title.titleize, post_path(post) %>
+<% end %>

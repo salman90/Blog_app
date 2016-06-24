@@ -11,3 +11,5 @@ if Category.count == 0
     Category.create(title: c)
   end
 end
+
+30.times { Tag.create(title: Faker::Name.name) }

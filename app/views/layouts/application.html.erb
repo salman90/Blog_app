@@ -15,6 +15,7 @@
     <%= link_to "Add new post", new_post_path %>
     |
     <%= link_to "All posts" , posts_path %>
+    |
     <!-- |
      <%# #link_to "Add category", new_category_path%>
     |
@@ -25,7 +26,9 @@
     <%# #link_to "contact info",contacts_path %>
     | -->
     <% if user_signed_in? %>
-        Hello, <%= current_user.first_name %>
+        <%= link_to "Favourited Posts", favourites_path %>
+        |
+        Hello, <%= link_to current_user.first_name, edit_user_path(current_user) %>
         <%= link_to "Sign Out", sessions_path, method: :delete %>
     <% else %>
       <%= link_to "sign up" ,new_user_path%>

@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   get "/about" => "home#about"
   resources :posts do
     resources :comments, only: [:create, :destroy]
+    resources :favourites, only: [:create, :destroy]
   end
 
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy, :update] do
+  resources :users, only: [:new, :create, :edit , :update]
+  resources :sessions, only: [:new, :create, :destroy] do
      delete :destroy, on: :collection
    end
+   resources :favourites, only: [:index]
   #
   # resources :categories
   # resources :contacts
