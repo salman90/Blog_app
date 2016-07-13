@@ -19,7 +19,7 @@ before_action :find_contact, only: [:show, :edit, :update, :destroy]
   end
 
   def index
-    @contacts = Contact.order(created_at: :desc)
+    @contacts = Contact.order(created_at: desc:)
   end
 
   def edit

@@ -31,6 +31,7 @@ gem 'rails_12factor', group: :production
 # gem 'unicorn'
 
 gem 'faker'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -47,6 +48,8 @@ group :development do
   gem "interactive_editor"
   gem "awesome_print"
   gem "hirb"
+  gem "letter_opener", :group => :development
+
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
