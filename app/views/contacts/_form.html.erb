@@ -1,19 +1,7 @@
-<%= form_for @contact do |c| %>
-<div>
-  <%= c.label :name %>
-  <%= c.text_field :name %>
-</div>
-<div>
-  <%= c.label :subject %>
-  <%= c.text_field :subject %>
-</div>
-<div>
-  <%= c.label :email %>
-  <%= c.text_field :email %>
-</div>
-<div>
-  <%= c.label :message %>
-  <%= c.text_area :message %>
-</div>
-<%= c.submit %>
+<%= simple_form_for @contact do |f| %><div>
+  <%= f.input :name %>
+  <%= f.input :subject %>
+  <%= f.input :email %>
+  <%= f.input :message %>
+  <%= f.button :submit %>
 <% end  %>

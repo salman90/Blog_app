@@ -1,19 +1,9 @@
 <p>this will be the form</p>
 
-<%= form_for @post do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <%= f.collection_select :category_id, Category.all, :id, :title %>
-  <div>
-    <%= f.label :tag_ids %>
-    <%= f.collection_check_boxes(:tag_ids, Tag.order(:title), :id, :title) %> <%#the tag_ids is a method created by reails to assign the post with the tag id then we order by title and we give it an id value and in the end we call it by title  %>
-
-  </div>
-<%= f.submit %>
+<%= simple_form_for @post do |f| %>
+    <%= f.input :title %>
+    <%= f.input :body %>
+    <%= f.association :category %>
+    <%= f.association :tags, as: :check_boxes%>
+    <%= f.button :submit %>
 <% end %>

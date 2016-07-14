@@ -1,8 +1,5 @@
 <p> Add your comment here </p>
-<%= form_for @comment do |c| %>
-<div>
-<%= c.label :body %>
-<%= c.text_area :body %>
-</div>
-<%= c.submit  %>
+<h1> commnts </h1>
+<%= simple_form_for @comment do |f| %>
+<%= f.input :body, hint: 'write your comment here' %>
 <% end %>

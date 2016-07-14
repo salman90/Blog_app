@@ -1,3 +1,5 @@
+<h1> commnts </h1>
+
 <% if flash[:notice] %>
     <%= flash[:notice]  %>
 <% elsif flash[:alert] %>
@@ -28,12 +30,9 @@
                       data: {confirm: "Are you sure?"}  %>
 <% end %>
 <h2>Create A Comment</h2>
-<%= form_for [@post, @comment] do |c| %>
-<div>
-  <%= c.label :body %>
-  <%= c.text_area :body %>
-</div>
-  <%= c.submit %>
+<%= simple_form_for [@post, @comment] do |f| %>
+  <%= f.input :body %>
+  <%= f.button :submit %>
 <% end %>
 
 <h2>All Comments</h2>

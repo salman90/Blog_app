@@ -1,40 +1,8 @@
-<% if @user.errors.any? %>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-  </ul>
-  <% end %>
-<%= form_for @user do |f| %>
-<div>
-  <%= f.label :first_name %>
-</div>
-<div>
-  <%= f.text_field :first_name %>
-</div>
-<div>
-  <%= f.label :last_name %>
-</div>
-<div>
-  <%= f.text_field :last_name %>
-</div>
-<div>
-  <%= f.label :email %>
-</div>
-<div>
-  <%= f.email_field :email %>
-</div>
-<div>
-  <%= f.label :password %>
-</div>
-<div>
-  <%= f.password_field :password %>
-</div>
-<div>
-  <%= f.label :password_confirmation %>
-</div>
-<div>
-  <%= f.password_field :password_confirmation%>
-</div>
-<%= f.submit %>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name,  placeholder: "First Name", errors: 'enter your first name' %>
+  <%= f.input :last_name,  placeholder: "Last Name" %>
+  <%= f.input :email, placeholder: "eample@gmail.com" %>
+  <%= f.input :password, input_html: {maxlength: 20} %>
+  <%= f.input :password_confirmation, input_html: {maxlength: 20}%>
+<%= f.button :submit %>
 <% end  %>
