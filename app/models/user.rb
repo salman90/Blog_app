@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+  class User < ActiveRecord::Base
 #i am adding a comment
 
   has_secure_password #adds the passowrd and the passowrd confi
@@ -14,7 +14,7 @@ validates :email , presence: true,
                   uniqueness: true ,
                   format:  /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 def full_name
-  "#{first_name}" "#{last_name}"
+  "#{first_name}" + " " + "#{last_name}"
 end
 
 end

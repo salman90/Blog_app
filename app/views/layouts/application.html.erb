@@ -7,41 +7,54 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <%= link_to "Home", root_path %>
-    |
-    <%= link_to "About", about_path %>
-    |
-    <%= link_to "Add new post", new_post_path %>
-    |
-    <%= link_to "All posts" , posts_path %>
-    |
-    <!-- |
-     <%# #link_to "Add category", new_category_path%>
-    |
-     <%# #link_to "All categories" ,categories_path%>
-    |
-    <%# #link_to "contact list", new_contact_path %>
-    |
-    <%# #link_to "contact info",contacts_path %>
-    | -->
-    <% if user_signed_in? %>
-        <%= link_to "Favourited Posts", favourites_path %>
-        |
-        Hello, <%= link_to current_user.first_name, edit_user_path(current_user) %>
-        <%= link_to "Sign Out", sessions_path, method: :delete %>
-    <% else %>
-      <%= link_to "sign up" ,new_user_path%>
-      <%= link_to "sign in" ,new_session_path%>
-    <% end %>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <li><%= link_to "Salman's blog", root_path, class: 'navbar-brand' %></li>
+      </div>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "blog" , posts_path %></li>
+       </ul>
+       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a id="dLabel" data-target= ".navbar-collapse" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+              <li><%= link_to "Add new post", new_post_path %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign up" ,new_user_path%></li>
+          <li><%= link_to "LogIn" ,new_session_path%></li>
+        <% end %>
+        </ul>
+    </div>
   </nav>
   <% if flash[:notice] %>
     <%= flash[:notice] %>
   <% elsif flash[:alert] %>
     <%= flash[:alert] %>
   <% end %>
+  <script type="text/javascript">
+  $('.dropdown').hover(function() {
+    $(".dropdown-menu").toggle();
+  });
+  </script>
 
 <%= yield %>
+<!-- <%= link_to "Favourited Posts", favourites_path %> -->
 
+<!-- |
+ <%# #link_to "Add category", new_category_path%>
+|
+ <%# #link_to "All categories" ,categories_path%>
+|
+<%# #link_to "contact list", new_contact_path %>
+|
+<%# #link_to "contact info",contacts_path %>
+| -->
 </body>
 </html>

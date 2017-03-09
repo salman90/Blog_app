@@ -14,8 +14,7 @@ class PostsController < ApplicationController
     if @post.save
       flash[:notice] = "Post created successfully"
       redirect_to post_path(@post)
-      # render json: params
-    else
+     else
       flash[:alert] = "post can't be created"
       render :new
     end
@@ -55,7 +54,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body, {tag_ids: []})
+    params.require(:post).permit(:title, :body, :image,  {tag_ids: []})
   end
 
 

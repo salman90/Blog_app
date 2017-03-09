@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "home#index"
+  get 'password_resets/new'
+
+  root "posts#index"
   get "/about" => "home#about"
   resources :posts do
     resources :comments, only: [:create, :destroy]
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
      delete :destroy, on: :collection
    end
    resources :favourites, only: [:index]
+   resources :password_resets
   #
   # resources :categories
   # resources :contacts

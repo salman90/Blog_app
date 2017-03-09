@@ -29,14 +29,20 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'carrierwave'
+
 
 gem 'faker'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
+gem "rmagick", :require => 'RMagick'
+gem "fog"
+gem "font-awesome-rails"
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-  gem "kaminari"
+gem "kaminari"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

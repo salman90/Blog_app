@@ -1,9 +1,9 @@
 <p>this will be the form</p>
 
-<%= simple_form_for @post do |f| %>
+<%= simple_form_for @post, html: {multipart: true} do |f| %>
+    <%= image_tag(@post.image_url) if @post.image? %>
     <%= f.input :title %>
     <%= f.input :body %>
-    <%= f.association :category %>
-    <%= f.association :tags, as: :check_boxes%>
+    <%= f.input :image %>
     <%= f.button :submit %>
 <% end %>
