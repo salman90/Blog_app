@@ -1,5 +1,5 @@
 <p> Add your comment here </p>
-<h1> commnts </h1>
-<%= simple_form_for @comment do |f| %>
+<%= simple_form_for [@post, @comment] do |f| %>
 <%= f.input :body, hint: 'write your comment here' %>
+<%= f.submit %>
 <% end %>

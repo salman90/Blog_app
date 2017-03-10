@@ -3,7 +3,7 @@
 <% if flash[:notice] %>
     <%= flash[:notice]  %>
 <% elsif flash[:alert] %>
-    <%= falsh[:alert] %>
+    <%= flash[:alert] %>
     <% end  %>
 
     <% if @post.favourited_by?(current_user) %>
@@ -39,6 +39,7 @@
 
 <% @post.comments.each do |com| %>
   <p><%= com.body %> |
+  <%= link_to "Edit", edit_post_comment_path(@post, com) %>
   <%= link_to "Delete", post_comment_path(@post, com),
                         method: :delete,
                         data: {confirm: "Are you sure?"} %></p>

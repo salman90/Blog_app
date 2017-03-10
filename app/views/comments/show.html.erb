@@ -5,8 +5,7 @@
   <% end %>
 
   <p><%= @comment.body %></p>
-
-  <%= link_to "edit" , edit_comment_path%>
+  <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
   |
   <%= link_to "Delete",comment_path(@comment),
                         method: :Delete,
