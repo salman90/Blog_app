@@ -19,3 +19,16 @@
  body{
    padding: 70px;
  }
+
+ .intro-header {
+  //  background-image: url('/assets/images/blogImageHome.jpeg');
+  background: url('blogImageHome.jpeg') no-repeat center center fixed;
+   background-color: #777777;
+   background-attachment: scroll;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;
+   margin-bottom: 50px;
+   width: 100%;
+ }
