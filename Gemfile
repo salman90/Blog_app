@@ -38,6 +38,8 @@ gem 'simple_form'
 gem "rmagick", :require => 'RMagick'
 gem "fog"
 gem "font-awesome-rails"
+gem "factory_girl"
+gem 'factory_girl_rails'
 
 
 # Use Capistrano for deployment
@@ -45,6 +47,7 @@ gem "font-awesome-rails"
 gem "kaminari"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'simplecov', :require => false
   gem 'byebug'
   gem "rspec-rails"
 end
