@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = Post.new post_params
     @post.user = current_user
     if @post.save
@@ -28,15 +27,15 @@ class PostsController < ApplicationController
     @posts = Post.order(created_at: :desc)
   end
   def edit
-    redirect_to root_path, alert: "access defined" unless can? :edit, @post
+    # redirect_to root_path, alert: "access defined" unless can? :edit, @post
   end
 
 
   def update
-     redirect_to root_path, alert: "access defined" unless can? :update, @post
+    #  redirect_to root_path, alert: "access defined" unless can? :update, @post
     if @post.update post_params
       flash[:notice] = "the post was updated "
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), notice: "post have been updated"
     else
       flash[:alert] = "Post can't be updated"
       render :edit
@@ -45,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-     redirect_to root_path, alert: "access defined" unless can? :destroy, @post
+    #  redirect_to root_path, alert: "access defined" unless can? :destroy, @post
     @post.destroy
     flash[:notice]= "your post was deleted"
     redirect_to posts_path

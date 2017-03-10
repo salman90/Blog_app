@@ -16,11 +16,20 @@ RSpec.describe Post, type: :model do
       expect(p1).to be_invalid
     end
   end
-describe ".body_snippet" do
-  it "return 100 charcters with ... if the post's body is longer than 100 characters" do
-    p = Post.create(title:"aeadawdwadwa", body: "0" * 150 )
-    expect(p.body_snippet.length).to eq(103)
+  describe ".body_snippet" do
+    it "return 100 charcters with ... if the post's body is longer than 100 characters" do
+      p = Post.create(title:"aeadawdwadwa", body: "0" * 150 )
+      expect(p.body_snippet.length).to eq(103)
+    end
   end
-end
-
+  describe "Associations" do
+    it "has many comments" do
+      comment = described_class.reflect_on_association(:comments)
+      expect(comment.macro).to eq :has_many
+    end
+    it "has many comments" do
+      favourite = described_class.reflect_on_association(:favourites)
+      expect(favourite.macro).to eq :has_many
+    end
+  end
 end
