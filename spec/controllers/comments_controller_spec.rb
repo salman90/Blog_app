@@ -55,6 +55,60 @@ RSpec.describe CommentsController, type: :controller do
     before do
       get :edit, id: comment.id, post_id: post.id
     end
-    
+    it "renders the edit template" do
+      expect(response).to render_template(:edit)
+    end
+    it "assigns the comment varabel to a  Comment " do
+      expect(assigns(:comment)).to eq(comment)
+    end
+    it "assigns the post varabel to a  Post" do
+      expect(assigns(:post)).to eq(post)
+    end
+  end
+  describe "#update" do
+    before {request.session[:user_id] = user.id}
+    let(:post) { FactoryGirl.create(:post) }
+    let(:comment) {FactoryGirl.create(:comment)}
+    let(:valid_comment_attributes) {FactoryGirl.attributes_for(:comment).merge({ body: "valid body request"})}
+    let(:invalid_comment_attributes) {FactoryGirl.attributes_for(:comment).merge({body:""})}
+    context "with valid request" do
+      it "update the record in the database" do
+        patch :update, id: comment.id, post_id: post.id, comment: valid_comment_attributes
+        expect(comment.reload.body).to eq("valid body request")
+      end
+      it "redirect to the post show page" do
+        patch :update, id: comment.id, post_id: post.id, comment: valid_comment_attributes
+        expect(response).to redirect_to(post_path(post))
+      end
+    end
+    context "with invalid request" do
+      it "doesn't update the value in database" do
+        patch :update, id: comment.id, post_id: post.id, comment: invalid_comment_attributes
+        expect(comment.reload.body).to_not eq("")
+      end
+      it "renders the post show page" do
+        patch :update, id: comment.id, post_id: post.id, comment: invalid_comment_attributes
+        expect(response).to render_template("posts/show")
+      end
+    end
+  end
+  describe "#destroy" do
+    let!(:post) { FactoryGirl.create(:post) }
+    let!(:comment) {FactoryGirl.create(:comment)}
+    before {request.session[:user_id] = user.id}
+    it "removes the record from the database" do
+      count_before = Comment.count
+      delete :destroy, id: comment.id, post_id: post.id
+      count_after = Comment.count
+      expect(count_before).to eq(count_after + 1)
+    end
+    it "renders the post show page" do
+      delete :destroy, id: comment.id, post_id: post.id
+      expect(response).to redirect_to(post_path(post))
+    end
+    it "sets the flash" do
+      delete :destroy, id: comment.id, post_id: post.id
+      expect(flash[:notice]).to be 
+    end
   end
 end
