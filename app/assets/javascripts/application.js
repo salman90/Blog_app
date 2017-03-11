@@ -14,11 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).on('turbolinks:load', function() {
-  toggleNav();
-});
-toggleNav = function(){
-  $('.dropdown').hover(function() {
-    $(".dropdown-menu").toggle();
-  });
-}

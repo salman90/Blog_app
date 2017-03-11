@@ -1,34 +1,24 @@
-<h1> commnts </h1>
 
 <% if flash[:notice] %>
     <%= flash[:notice]  %>
 <% elsif flash[:alert] %>
     <%= flash[:alert] %>
-    <% end  %>
-
-    <% if @post.favourited_by?(current_user) %>
-      <%= link_to "Unfavourite", post_favourite_path(@post, @post.favourite_for(current_user)),
-      method: :delete %>
-      <% else %>
-      <%= link_to "Favourite",
-      post_favourites_path(@post),
-      method: :post %>
+<% end  %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <% if @post.image.present? %>
+        <%= image_tag @post.image_url(:medium), class: 'postImage' %>
       <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @post.title %></h1>
+    </div>
+  </div>
+</div>
 
-
-<h1><%= @post.title %></h1>
-<p>Tags: <%= @post.tags.map {|t| t.title.capitalize }.join(", ") %></p>
-<% if can? :read, @post %>
-  <h1>apscmaa</h1>
-  <% end %>
-<% if can? :edit, @post %>
-<%= link_to "Edit" , edit_post_path(@post)%>
-<% end %>
-<% if can? :destroy, @post %>
-<%= link_to "Delete", post_path(@post),
-                      method: :delete,
-                      data: {confirm: "Are you sure?"}  %>
-<% end %>
 <h2>Create A Comment</h2>
 <%= simple_form_for [@post, @comment] do |f| %>
   <%= f.input :body %>
@@ -44,7 +34,3 @@
                         method: :delete,
                         data: {confirm: "Are you sure?"} %></p>
 <% end  %>
-
-<% if @post.image.present? %>
-  <%= image_tag @post.image_url(:medium) %>
-<% end %>
