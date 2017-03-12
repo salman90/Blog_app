@@ -15,7 +15,7 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "blog" , posts_path %></li>
+          <li><%= link_to "Blog" , posts_path %></li>
        </ul>
        <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
@@ -45,16 +45,5 @@
   </script>
 
 <%= yield %>
-<!-- <%= link_to "Favourited Posts", favourites_path %> -->
-
-<!-- |
- <%# #link_to "Add category", new_category_path%>
-|
- <%# #link_to "All categories" ,categories_path%>
-|
-<%# #link_to "contact list", new_contact_path %>
-|
-<%# #link_to "contact info",contacts_path %>
-| -->
 </body>
 </html>
