@@ -15,7 +15,8 @@ class Post < ActiveRecord::Base
   validates :title, presence: {message:"the title have no title"},
                     uniqueness: true
 
-    validates :body, presence: {message: "there is no body"}
+    validates :body, presence: {message: "there is no body"},
+                     length: {minimum: 100}
 
   def body_snippet
     if self.body.length > 100
