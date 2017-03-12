@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
   def index
-    @posts = Post.order(created_at: :desc)
+    @posts = Post.paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
   end
   def edit
     # redirect_to root_path, alert: "access defined" unless can? :edit, @post

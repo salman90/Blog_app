@@ -41,7 +41,7 @@ gem "font-awesome-rails"
 gem "factory_girl"
 gem 'factory_girl_rails'
 
-
+gem 'will_paginate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "kaminari"
