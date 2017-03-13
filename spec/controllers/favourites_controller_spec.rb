@@ -32,27 +32,33 @@ RSpec.describe FavouritesController, type: :controller do
       end
     end
     context "with invalid request" do
+      before {request.session[:user_id] = nil}
+
       it "won't add a record in the database" do
         before_action = Favourite.count
         post :create, post_id:  post1, favourite: :invalid_favourite_attributes
         after_action = Favourite.count
         expect(after_action).to eq(before_action)
       end
-      it "will redirect to the post show page" do
+      it "will redirect to the login page" do
         post :create, post_id:  post1, favourite: :invalid_favourite_attributes
-        expect(response).to redirect_to('posts/show')
+        expect(response).to redirect_to(new_session_path)
       end
     end
   end
   describe "#destroy" do
     let!(:post) {FactoryGirl.create(:post)}
-    let!(:favourite) {FactoryGirl.create(:favourite)}
+    let!(:favourite) {FactoryGirl.create(:favourite, user: user)}
     before {request.session[:user_id] = user.id}
     it "will remove a record from the database" do
       before_action = Favourite.count
-      delete :destroy, id: favourite.id, post_id: post.id, user: user
+      delete :destroy, id: favourite.id, post_id: post.id
       after_action = Favourite.count
       expect(before_action).to eq(after_action + 1)
+    end
+    it "will render the post show page" do
+      delete :destroy, id: favourite.id, post_id: post.id
+      expect(response).to redirect_to(post_path(post))
     end
   end
 end
