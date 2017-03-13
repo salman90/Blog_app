@@ -23,7 +23,4 @@ before_action :authenticate_user!
       fav.destroy
       redirect_to post_path(post)
     end
-
-
-
 end
