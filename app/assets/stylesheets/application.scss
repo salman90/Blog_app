@@ -33,27 +33,11 @@
  ///////// landing page
 
  .jumbotron{
-   background-image: url("assets/images/imageHomePage.jpeg");
+   background-image: url("imageHomePage.jpeg") center center no-repeat;
    background-size: cover;
  }
 
- .intro-header {
-  background: url('blogImageHome.jpeg') no-repeat center center fixed;
-   background-color: #777777;
-   background-attachment: scroll;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   background-size: cover;
-   -o-background-size: cover;
-   margin-bottom: 50px;
-   width: 100%;
- }
 
- .postImage{
-   max-width: 100px;
-    max-height: 100px;
-   display: inline-block;
- }
 //// pagination
  .digg_pagination {
   background: white;

@@ -20,17 +20,12 @@
 </div>
 
 <h2>Create A Comment</h2>
-<%= simple_form_for [@post, @comment] do |f| %>
-  <%= f.input :body %>
-  <%= f.button :submit %>
-<% end %>
-
+<div id="comment-form">
+  <%= render "/comments/form" %>
+</div>
 <h2>All Comments</h2>
-
-<% @post.comments.each do |com| %>
-  <p><%= com.body %> |
-  <%= link_to "Edit", edit_post_comment_path(@post, com) %>
-  <%= link_to "Delete", post_comment_path(@post, com),
-                        method: :delete,
-                        data: {confirm: "Are you sure?"} %></p>
-<% end  %>
+<div id="comments">
+  <% @post.comments.each do |comment| %>
+    <%= render "/comments/comment", comment: comment %>
+  <% end  %>
+</div>

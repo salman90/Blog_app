@@ -4,12 +4,15 @@ class CommentsController < ApplicationController
      @post = Post.find params[:post_id]
      @comment.post = @post
      @comment.user = current_user
-     if @comment.save
-      #  CommentsMailer.notify_post_owner(@comment).deliver_now
-       redirect_to post_path(@post), notice: "comment created"
-     else
-       flash[:alert] =  "something went wrong"
-       render "/posts/show"
+     respond_to do |format|
+       if @comment.save
+         #  CommentsMailer.notify_post_owner(@comment).deliver_now
+         format.html{redirect_to post_path(@post), notice: "comment created"}
+         format.js{render :create_success}
+       else
+         format.html{render "/posts/show", alert: "something went wrong"}
+         format.js {render :create_failure}
+       end
      end
    end
    def edit
