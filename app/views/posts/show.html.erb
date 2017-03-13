@@ -8,13 +8,25 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <% if @post.image.present? %>
-        <%= image_tag @post.image_url(:medium), class: 'postImage' %>
+        <%= image_tag @post.image_url(:large), class: 'postImage' %>
       <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h1><%= @post.title %></h1>
+      <h3><%= @post.title %></h3>
+      <p><%= @post.body %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <% if user_signed_in? && @post.favourited_by?(current_user) %>
+        <%= link_to "Remove fav", post_favourite_path(@post, @post.favourite_for(current_user)), method: :delete %>
+    </div>
+      <% else %>
+    <div class="col-md-3">
+        <%= link_to "Fav", post_favourites_path(@post), class: "icon-big", method: :post   %>
+      <% end %>
     </div>
   </div>
 </div>
