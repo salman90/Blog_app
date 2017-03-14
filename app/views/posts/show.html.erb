@@ -29,15 +29,20 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<h2>Create A Comment</h2>
-<div id="comment-form">
-  <%= render "/comments/form" %>
-</div>
-<h2>All Comments</h2>
-<div id="comments">
-  <% @post.comments.each do |comment| %>
-    <%= render "/comments/comment", comment: comment %>
-  <% end  %>
+  <div class="row">
+    <div class="col-md-3">
+      <div id="comments">
+        <% @post.comments.each do |comment| %>
+          <%= render "/comments/comment", comment: comment %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 ">
+      <div id="comment-form">
+        <%= render "/comments/form" %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -33,7 +33,7 @@
           <% end %>
         </div>
         <div class="caption">
-          <h3><h3><%= link_to post.title, post_path(post) %></h3></h3>
+          <h3><%= link_to post.title, post_path(post) %></h3>
           <p><%= post.body.truncate(200, omission: '.......') %></p>
           <%= link_to "Read more",post_path(post), class: "btn btn-md btn-default"  %>
           <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary" %>
