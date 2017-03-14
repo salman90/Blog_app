@@ -18,7 +18,14 @@
 
  body{
    padding: 70px;
- }
+   font-family: 'Lora', serif;
+  }
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  text-transform: capitalize;
+}
 
  .postImage{
   //  margin-top: 20px;
@@ -26,7 +33,9 @@
    height:  100px;
    width: 200px;
  }
+ #postShowPageImage{
 
+ }
 
 
  ///////// landing page
@@ -77,3 +86,19 @@
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+/////////////////////////post show
+.postTitleShow{
+  color: #337ab7;
+  margin-bottom: 30px;
+}
+
+#postShowDes{
+}
+
+#postShowBody{
+
+}
+.postShowImage{
+  width: 70%;
+  margin-bottom: 20px;
+}
