@@ -60,5 +60,13 @@ RSpec.describe FavouritesController, type: :controller do
       delete :destroy, id: favourite.id, post_id: post.id
       expect(response).to redirect_to(post_path(post))
     end
+    it "sets the flash notice" do
+      delete :destroy, id: favourite.id, post_id: post.id
+      expect(flash[:notice]).to be
+    end
+  end
+  describe "#index" do
+    before {request.session[:user_id] = user.id}
+    
   end
 end
