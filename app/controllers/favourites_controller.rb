@@ -11,7 +11,7 @@ before_action :authenticate_user!
     post = Post.find params[:post_id]
     @fav = Favourite.new(post: post, user: current_user)
     if @fav.save
-      redirect_to post_path(post), notice: "thanks for favourating"
+      redirect_to posts_path	, notice: "thanks for favourating"
     else
       redirect_to post_path(post), alert: "Unable to faver"
     end
@@ -21,6 +21,6 @@ before_action :authenticate_user!
       fav = current_user.favourites.find params[:id]
       post = Post.find params[:post_id]
       fav.destroy
-      redirect_to post_path(post), notice: "Unfavourite"
+      redirect_to posts_path, notice: "Unfavourite"
     end
 end
