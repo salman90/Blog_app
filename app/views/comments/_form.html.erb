@@ -1,5 +1,5 @@
 <%= @comment.errors.full_messages.join(", ") %>
 <%= simple_form_for [@post, @comment], remote: true  do |f| %>
-<%= f.input :body, hint: 'write your comment here', label: false %>
-<%= f.submit %>
+<%= f.input :body, label: "leave you comment:" %>
+<%= f.button :submit %>
 <% end %>

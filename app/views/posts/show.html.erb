@@ -4,15 +4,17 @@
 <% elsif flash[:alert] %>
     <%= flash[:alert] %>
 <% end  %>
-<div class="container text-center">
+<div class="container">
   <div id="postShowDes">
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h3 class="postTitleShow"><%= @post.title %></h3>
+      <div class="col-md-12 ">
+        <h1 class="postTitleShow"><%= @post.title %></h1>
+        <h3><span>By:</span><%= @post.user.full_name %></h3><hr>
+        <h4 class="postDate"><span>Posted on </span><%= @post.post_time %></h4><hr>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 text-center">
+      <div class="col-md-12">
         <div class="imageCon">
           <% if @post.image.present? %>
             <%= image_tag @post.image_url(:large), class: 'img-responsive img-thumbnail postShowImage' %>
@@ -26,26 +28,35 @@
         <hr>
       </div>
     </div>
-    <div class="row">
-        <a class="twitter-share-button" href="https://twitter.com/share" data-via="GhettoLifeHack_" data-url="" data-text="asdf comment body" data-hashtags="ghettolifehack">
-        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-        </a>
-        <a class="twitter-share-button" href="https://facebook.com/share" data-via="GhettoLifeHack_" data-url="" data-text="asdf comment body" data-hashtags="ghettolifehack">
-        <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="col-md-3">
-        <div id="comment-form">
-          <%= render "/comments/form" %>
-        </div>
-      </div>
-      <div class="col-md-3 ">
-        <div id="comments">
-          <% @post.comments.each do |comment| %>
-            <%= render "/comments/comment", comment: comment %>
-            <% end %>
-        </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="well col-md-12">
+      <div id="comment-form">
+        <%= render "/comments/form" %>
       </div>
     </div>
   </div>
+  <div class='row'>
+
+  </div>
 </div>
+
+<!-- <div class="row">
+    <a class="twitter-share-button" href="https://twitter.com/share" data-via="GhettoLifeHack_" data-url="" data-text="asdf comment body" data-hashtags="ghettolifehack">
+    <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+    </a>
+    <a class="twitter-share-button" href="https://facebook.com/share" data-via="GhettoLifeHack_" data-url="" data-text="asdf comment body" data-hashtags="ghettolifehack">
+    <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+    </a>
+</div>
+
+  <div class="col-md-3 ">
+    <div id="comments">
+      <% @post.comments.each do |comment| %>
+        <%= render "/comments/comment", comment: comment %>
+        <% end %>
+    </div>
+  </div> -->

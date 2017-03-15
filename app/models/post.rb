@@ -31,4 +31,7 @@ class Post < ActiveRecord::Base
   def favourite_for(user)
     favourites.find_by_user_id user
   end
+  def post_time
+    created_at.strftime("%m/%d/%y at %l:%M %p")
+  end
 end
