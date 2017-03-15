@@ -15,6 +15,7 @@
  */
 
  @import "bootstrap";
+ @import "font-awesome";
 
  body{
    padding: 70px;
@@ -28,8 +29,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
  .postImage{
-  //  margin-top: 20px;
-  //  width: 500px;
    height:  100px;
    width: 200px;
  }
@@ -101,4 +100,11 @@ h1,h2,h3,h4,h5,h6{
 .postShowImage{
   width: 70%;
   margin-bottom: 20px;
+}
+.icon-fav, .icon-fav:hover{
+  text-decoration: none!important;
+  color: #000;
+}
+.icon-unfav, .icon-unfav:hover{
+  text-decoration: none!important;
 }
