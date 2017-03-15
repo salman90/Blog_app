@@ -40,7 +40,13 @@
     </div>
   </div>
   <div class='row'>
-
+    <div class="col-md-12">
+      <div id="comments">
+        <% @post.comments.each do |comment| %>
+          <%= render "/comments/comment", comment: comment %>
+          <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

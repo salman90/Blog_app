@@ -1,7 +1,9 @@
 <div id="<%= dom_id(comment) %>">
-<%= comment.body %>
-<%= link_to "Edit", edit_post_comment_path(@post, comment) %>
-<%= link_to "Delete", post_comment_path(@post, comment),
+  <h5><%= comment.user.full_name %></h5>
+  <p><%= comment.body %>
+    <%= link_to "Delete", post_comment_path(@post, comment),
                       method: :delete,
                       remote: true,
-                      data: {confirm: "Are you sure?"} %></div>
+                      data: {confirm: "Are you sure?"} %>
+  </p>
+</div>
