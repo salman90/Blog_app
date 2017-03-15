@@ -23,10 +23,11 @@
     <div class="row">
       <div class="col-md-12">
         <p id="postShowBody"><%= @post.body %></p>
+        <hr>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-6">
         <% if user_signed_in? && @post.favourited_by?(current_user) %>
           <%= link_to post_favourite_path(@post, @post.favourite_for(current_user)), class: "icon-unfav" ,method: :delete do %>
           <i class="fa fa-heart fa-2x" aria-hidden="true"></i><br><span>Unfavourite</span>
@@ -36,6 +37,12 @@
           <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i><br><span>Favourite</span>
           <% end %>
         <% end %>
+        <a class="twitter-share-button" href="https://twitter.com/share" data-via="GhettoLifeHack_" data-url="" data-text="asdf comment body" data-hashtags="ghettolifehack">
+        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+        </a>
+        <a class="twitter-share-button" href="https://facebook.com/share" data-via="GhettoLifeHack_" data-url="" data-text="asdf comment body" data-hashtags="ghettolifehack">
+        <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+        </a>
       </div>
       <div class="col-md-3">
         <div id="comment-form">
