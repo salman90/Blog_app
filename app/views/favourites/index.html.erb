@@ -1,20 +1,22 @@
-<div class="container" >
-  <div class="row">
-  <% @posts.each do |post| %>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <div class="thumbnail img-thumbnail">
-        <div class="postImage ">
-          <% if post.image.present?  %>
-            <%= image_tag post.image_url(:medium), class: 'img-responsive img-thumbnail', style: 'width:200px;' 'height:100px' %>
-          <% end %>
-        </div>
-        <div class="caption">
-          <h3><%= link_to post.title, post_path(post) %></h3>
-          <p><%= post.body.truncate(200, omission: '.......') %></p>
-          <%= link_to "Read more",post_path(post), class: "btn btn-md btn-default"  %>
+<div class="container" id="postContainer">
+  <div class="text-center">
+    <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="thumbnail img-thumbnail">
+          <div class="postImage ">
+            <% if post.image.present?  %>
+              <%= image_tag post.image_url(:medium), class: 'img-responsive img-thumbnail', style: 'width:200px;' 'height:100px' %>
+            <% end %>
+          </div>
+          <div class="caption">
+            <h3><%= link_to post.title, post_path(post) %></h3>
+            <p><%= post.body.truncate(200, omission: '.......') %></p>
+            <%= link_to "Read more",post_path(post), class: "btn btn-md btn-default"  %>
+          </div>
         </div>
       </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
 </div>

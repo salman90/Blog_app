@@ -26,12 +26,11 @@
 <div class="jumbotron">
   <div class="container">
     <div class="main">
-      <h1>Inspection</h1>
-      <a href="#" class="btn-main">Create Module</a>
+
     </div>
   </div>
 </div>
-<div class="container" >
+<div class="container"  >
   <div class="text-center">
     <div class="row">
     <% @posts.each do |post| %>
@@ -77,4 +76,4 @@
   <div class="digg_pagination">
   <%= will_paginate @posts, :container => false %>
   </div>
-</div>
+</div><hr>

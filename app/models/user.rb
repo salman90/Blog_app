@@ -1,7 +1,6 @@
   class User < ActiveRecord::Base
-#i am adding a comment
-
   has_secure_password #adds the passowrd and the passowrd confi
+  mount_uploader :picture, ImgeUploader
   has_many :comments, dependent: :nullify
   has_many :posts, dependent: :nullify  # one to meny
 
@@ -13,6 +12,8 @@ validates :last_name , presence: true
 validates :email , presence: true,
                   uniqueness: true ,
                   format:  /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
+
 def full_name
   "#{first_name.capitalize}" + " " + "#{last_name.capitalize}"
 end

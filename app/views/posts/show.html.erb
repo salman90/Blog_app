@@ -9,8 +9,23 @@
     <div class="row">
       <div class="col-md-12 ">
         <h1 class="postTitleShow"><%= @post.title %></h1>
-        <h3><span>By:</span><%= @post.user.full_name %></h3><hr>
-        <h4 class="postDate"><span>Posted on </span><%= @post.post_time %></h4><hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <% if @post.user.picture.present? %>
+          <%= image_tag @post.user.picture_url(:thumb), class: 'img-responsive img-circle userImage' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h3><span>by:</span> <%= @post.user.full_name %></h3><hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="postDate"><spa>Posted on </span><%= @post.post_time %></h4><hr>
       </div>
     </div>
     <div class="row">
@@ -40,6 +55,7 @@
     </div>
   </div>
   <div class='row'>
+    <hr>
     <div class="col-md-12">
       <div id="comments">
         <% @post.comments.each do |comment| %>
