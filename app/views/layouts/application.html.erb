@@ -15,8 +15,7 @@
       </div>
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "Blog" , posts_path %></li>
+          <li><%= link_to "Contact Me", about_path %></li>
        </ul>
        <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
@@ -35,11 +34,6 @@
         </ul>
     </div>
   </nav>
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% elsif flash[:alert] %>
-    <%= flash[:alert] %>
-  <% end %>
   <script type="text/javascript">
   $('.dropdown').hover(function() {
     $(".dropdown-menu").toggle();

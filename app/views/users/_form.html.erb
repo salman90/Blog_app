@@ -1,9 +1,13 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :first_name,  placeholder: "First Name", errors: 'enter your first name' %>
-  <%= f.input :last_name,  placeholder: "Last Name" %>
-  <%= f.input :email, placeholder: "eample@gmail.com" %>
-  <%= f.input :password, input_html: {maxlength: 20} %>
-  <%= f.input :password_confirmation, input_html: {maxlength: 20}%>
-  <%= f.input :picture %>
-  <%= f.button :submit %>
-<% end  %>
+<div id="signUp">
+  <div class="container">
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :first_name,  placeholder: "First Name", errors: 'enter your first name' %>
+      <%= f.input :last_name,  placeholder: "Last Name" %>
+      <%= f.input :email, placeholder: "eample@gmail.com" %>
+      <%= f.input :password, input_html: {maxlength: 20} %>
+      <%= f.input :password_confirmation, input_html: {maxlength: 20}%>
+      <%= f.input :picture %>
+      <%= f.button :submit %>
+    <% end  %>
+  </div>
+</div>

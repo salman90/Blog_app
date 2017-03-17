@@ -1,8 +1,3 @@
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% elsif flash[:alert] %>
-  <%= flash[:alert]  %>
-  <% end %>
 
   <p><%= @comment.body %></p>
   <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
