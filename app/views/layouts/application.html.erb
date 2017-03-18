@@ -15,16 +15,17 @@
       </div>
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Contact Me", about_path %></li>
-       </ul>
+        </ul>
        <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
+        <% if user_signed_in?%>
           <li class="dropdown">
             <a id="dLabel" data-target= ".navbar-collapse" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %> <span class="caret"></span></a>
             <ul class="dropdown-menu" aria-labelledby="dLabel">
               <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
-              <li><%= link_to "Add new post", new_post_path %></li>
               <li><%= link_to "Favourites", favourites_path	 %>
+              <% if user_signed_in? && user_admin? %>
+                <li><%= link_to "Add new post", new_post_path %></li>
+              <% end %>
             </ul>
           </li>
         <% else %>

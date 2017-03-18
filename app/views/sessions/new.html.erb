@@ -1,14 +1,26 @@
-<h1>Sign In</h1>
-<%= form_tag sessions_path do %>
-  <div>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
+<div class="container" id="formSessions">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Sign In</h1>
+    </div>
   </div>
-  <div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+  <%= form_tag sessions_path do %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
+    </div>
   </div>
-  <div>
-    <%= submit_tag "Log In" %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
   </div>
-<% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= submit_tag "Log In" %>
+    </div>
+  </div>
+  <% end %>
+</div>

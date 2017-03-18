@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    # if we need methods to be available in view files we will need to add 'helper_method' and the first argument is the method name as a symbol.
   end
 helper_method :current_user
 
@@ -22,5 +21,10 @@ helper_method :current_user
   def sign_in(user)
     session[:user_id] = user.id
   end
+
+  def user_admin?
+    current_user.admin == true
+  end
+  helper_method :user_admin?
 
 end
