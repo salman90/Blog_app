@@ -4,10 +4,12 @@
       <h1>Sign In</h1>
     </div>
   </div>
-  <%= form_tag sessions_path do %>
+  <%= form_tag sessions_path, validate: true  do %>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-4md-4" id="email">
       <%= label_tag :email %>
+    </div>
+    <div class="col-md-4">
       <%= email_field_tag :email %>
     </div>
   </div>

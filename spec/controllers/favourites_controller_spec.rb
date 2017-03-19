@@ -16,7 +16,7 @@ RSpec.describe FavouritesController, type: :controller do
       end
       it "it redirect to the post show page" do
         post :create, post_id: post1.id ,favourite: valid_favourite_attributes
-        expect(response).to redirect_to(post_path(post1))
+        expect(response).to redirect_to(posts_path)
       end
       it "sets a flash notice to the user" do
         post :create, post_id: post1.id ,favourite: valid_favourite_attributes
@@ -58,7 +58,7 @@ RSpec.describe FavouritesController, type: :controller do
     end
     it "will render the post show page" do
       delete :destroy, id: favourite.id, post_id: post.id
-      expect(response).to redirect_to(post_path(post))
+      expect(response).to redirect_to(posts_path)
     end
     it "sets the flash notice" do
       delete :destroy, id: favourite.id, post_id: post.id

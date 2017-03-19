@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     @comment  = Comment.find params[:id]
     @comment.destroy
     respond_to do |format|
-      format.html {redirect_to post_path(post), notice: "comment is deleted"}
+      format.html {redirect_to post_path(@post), notice: "comment is deleted"}
       format.js {render }
     end
   end

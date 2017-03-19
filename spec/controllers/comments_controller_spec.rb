@@ -42,10 +42,6 @@ RSpec.describe CommentsController, type: :controller do
         post :create, post_id: post1.id, comment: invalid_comment_attributes
         expect(response).to render_template('posts/show')
       end
-      it "sets the flash" do
-        post :create, post_id: post1.id, comment: invalid_comment_attributes
-        expect(flash[:alert]).to be
-      end
     end
   end
   describe "#edit" do
@@ -108,7 +104,7 @@ RSpec.describe CommentsController, type: :controller do
     end
     it "sets the flash" do
       delete :destroy, id: comment.id, post_id: post.id
-      expect(flash[:notice]).to be 
+      expect(flash[:notice]).to be
     end
   end
 end
