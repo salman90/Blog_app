@@ -23,9 +23,7 @@
             <ul class="dropdown-menu" aria-labelledby="dLabel">
               <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
               <li><%= link_to "Favourites", favourites_path	 %>
-              <% if user_signed_in? && user_admin? %>
-                <li><%= link_to "Add new post", new_post_path %></li>
-              <% end %>
+              <li><%= link_to "Add new post", new_post_path %></li>
             </ul>
           </li>
         <% else %>
