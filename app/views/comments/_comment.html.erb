@@ -1,9 +1,11 @@
 <div id="<%= dom_id(comment) %>">
   <div class=" row">
     <div class="col-md-1">
+      <% if comment.user.picture.present? %>
+        <%= image_tag comment.user.picture_url(:thumb), class: 'img-responsive' %>
+      <% end %>
     </div>
     <div class=" col-md-11">
-      <h3><%= comment.user.full_name %><span id="commentDate"><%= comment.comment_time %></span></h3><br>
       <p><%= comment.body %>
         <%= link_to "Delete", post_comment_path(@post, comment),
                       method: :delete,

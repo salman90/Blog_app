@@ -27,20 +27,6 @@ class UsersController < ApplicationController
       flash[:alert] = "Unable to update account"
       render :edit
     end
-
-    # Update without password
-    # if @user.update user_params
-    #   redirect_to root_path
-    #   flash[:notice] = "Account updated"
-    # else
-    #   render :edit
-    #   flash[:notice] = "Unable to update account"
-    # end
-
-    # if @user.update_attributes(user_params)
-    # else
-    #   render 'edit'
-    # end
   end
 
   private
