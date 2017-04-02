@@ -12,10 +12,17 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <li><%= link_to "Salman's blog" ,root_path, class:'navbar-brand'%></li>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
       </div>
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
         </ul>
+      <div class="navbar-collapse collapse" id="myNavbar">
        <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in?%>
           <li class="dropdown">
@@ -31,6 +38,7 @@
           <li><%= link_to "LogIn" ,new_session_path%></li>
         <% end %>
         </ul>
+      </div>
     </div>
   </nav>
   <script type="text/javascript">
