@@ -34,7 +34,7 @@ gem 'carrierwave'
 gem 'faker'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
-gem "rmagick", :require => 'RMagick'
+gem "rmagick"
 gem "fog"
 gem "font-awesome-rails"
 gem "factory_girl"
