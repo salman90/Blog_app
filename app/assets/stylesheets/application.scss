@@ -28,20 +28,30 @@ h1,h2,h3,h4,h5,h6{
   text-transform: capitalize;
 }
 //////navbar
-.navbar{
-  background-color: transparent;
-   background: transparent;
-   border-color: transparent;
+@media (min-width: 766px) {
+  #searchCon{
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 765px) {
+    #searchCon{
+      margin-top: 100px;
+      margin-bottom: 30px;
+    }
+}
+@media (min-width: 800px){
+  .navbar{
+    background-color: transparent;
+     background: transparent;
+     border-color: transparent;
+   }
 }
 li{
   list-style-type: none;
 
 }
-#searchCon{
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
  .postImage{
    height:  100px;
    width: 200px;
@@ -159,4 +169,15 @@ font-size: 20px;
 #SignUpButton, #passwordSignUp,
 #emailSignUp{
   margin-top: 15px;
+}
+@media (min-width: 1200px) {
+  #salmanTitle{
+    background-color: black
+  }
+}
+
+@media (max-width: 1199px) {
+    #salmanTitle {
+        background: rgba(255, 192, 203, 0.5); /* transparent pink */
+    }
 }
